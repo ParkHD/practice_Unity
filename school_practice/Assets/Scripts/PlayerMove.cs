@@ -62,7 +62,6 @@ public class PlayerMove : MonoBehaviour
             return;
         if(Input.GetButtonUp("Jump"))
         {
-            playerAni.SetBool("isGround", false);
             playerRigid.velocity = new Vector2(playerRigid.velocity.x, 0);
             playerRigid.AddForce(Vector2.up * playerJump, ForceMode2D.Impulse);
             jumpCount--;
@@ -73,14 +72,22 @@ public class PlayerMove : MonoBehaviour
         playerAni.SetFloat("isJump", playerRigid.velocity.y);
 
         if (playerRigid.velocity.y > 0)
+        {
+            playerAni.SetBool("isGround", false);
             return;
-        float rayDistance = 0.35f;
+        }
+
+        float rayDistance = 0.4f;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, 1 << LayerMask.NameToLayer("Ground"));
         Debug.DrawRay(transform.position, Vector2.down * rayDistance, Color.red);
         if(hit)
         {
             jumpCount = MAX_JUMP_COUNT;
             playerAni.SetBool("isGround", true);
+        }
+        else
+        {
+            playerAni.SetBool("isGround", false);
         }
     }
 }
