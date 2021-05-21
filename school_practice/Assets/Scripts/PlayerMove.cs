@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] float playerSpeed;
     [SerializeField] float playerJump;
+    [SerializeField] float damageForce;
     private SpriteRenderer playerRenderer;
     private Rigidbody2D playerRigid;
     private Animator playerAni;
@@ -13,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     private int MAX_JUMP_COUNT = 2;
     private int jumpCount;
 
-
+    private float superGuard;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +37,15 @@ public class PlayerMove : MonoBehaviour
             playerAni.SetBool("isRun", false);
         }
         Jump();
+        superGuard -= Time.deltaTime;
+        if (superGuard < 0)
+            superGuard = 0;
     }
 
     void Move()
     {
+        if (superGuard > 0)
+            return;
         if (Input.GetButton("Horizontal") == false)
             return;
 
@@ -58,6 +64,8 @@ public class PlayerMove : MonoBehaviour
     }
     void Jump()
     {
+        if (superGuard > 0)
+            return;
         if (jumpCount <= 0)
             return;
         if(Input.GetButtonUp("Jump"))
@@ -89,5 +97,15 @@ public class PlayerMove : MonoBehaviour
         {
             playerAni.SetBool("isGround", false);
         }
+    }
+    public void Damaged(Vector2 target)
+    {
+        if (superGuard > 0)
+            return;
+        Vector2 dir = transform.position.x > target.x ? Vector2.right : Vector2.left;
+        playerRigid.velocity = Vector2.zero;
+        playerRigid.AddForce(dir* damageForce, ForceMode2D.Impulse);
+        playerRigid.AddForce(Vector2.up*damageForce, ForceMode2D.Impulse);
+        superGuard = 1.0f;
     }
 }
