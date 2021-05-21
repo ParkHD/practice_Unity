@@ -10,11 +10,7 @@ public class SoundEffect : MonoBehaviour
     {
         aSource = GetComponent<AudioSource>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -28,6 +24,7 @@ public class SoundEffect : MonoBehaviour
     {
         isSet = true;
         aSource.clip = clip;
+        aSource.volume = SoundManager.Instance.SfxVolume;
         aSource.Play();
     }
 

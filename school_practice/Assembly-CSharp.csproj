@@ -59,10 +59,12 @@
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\SoundEffect.cs" />
-    <Compile Include="Assets\Scripts\IntroManager.cs" />
+    <Compile Include="Assets\Scripts\Intro\IntroManager.cs" />
+    <Compile Include="Assets\Scripts\sfxHandler.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gem.cs" />
+    <Compile Include="Assets\Scripts\Intro\optionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
