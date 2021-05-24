@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
         rigid.AddForce(Vector2.up* jumpPower, ForceMode2D.Impulse);
         isGround = false;
         jumpCount--;
+
+        SoundManager.Instance.PlaySFX("jump");
     }
     void CheckGround()
     {

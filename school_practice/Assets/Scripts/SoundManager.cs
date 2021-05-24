@@ -51,7 +51,7 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void startBgm(AudioClip clip)
+    private void startBgm(AudioClip clip)
     {
         Debug.Log("BGM");
         Debug.Log(bgmVolume);
@@ -66,7 +66,7 @@ public class SoundManager : MonoBehaviour
             }
         }
     }
-    public void startSfx(AudioClip clip)
+    private void startSfx(AudioClip clip)
     {
         for(int i =0;i< audioArray.Length;i++)
         {
