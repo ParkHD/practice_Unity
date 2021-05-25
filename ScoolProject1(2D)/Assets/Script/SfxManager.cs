@@ -5,7 +5,7 @@ using UnityEngine;
 public class SfxManager : MonoBehaviour
 {
     AudioSource audio;
-    bool isSet;
+    bool isSet; //  효과음이 재생되기전에 Destroy방지.
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
@@ -22,5 +22,5 @@ public class SfxManager : MonoBehaviour
         isSet = true;
         audio.clip = clip;
         audio.Play();
-    }
+    }                           
 }
