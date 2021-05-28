@@ -4,70 +4,82 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject cameraLook;
     [SerializeField] CharacterController controller;
-    [SerializeField] float moveSpeed = 3f;
-    [SerializeField] float gravityScale = 1.0f;
-    [SerializeField] float jumpHight = 3f;
+    [SerializeField] GameObject groundChecker;
+    [SerializeField] float groundCheckDistance;
+    [SerializeField] float sensitivityX = 250f;
+    [SerializeField] float sensitivityY = 250f;
+    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float jumpPower = 3f;
+    float rotationY = 0f;
 
-    [SerializeField] Transform groundChecker;
-    [SerializeField] LayerMask groundLayer;
-    [SerializeField] float groundDistance;
+    [SerializeField] float gravityScale = 1f;
 
+    Vector3 velocity = Vector3.zero;
+    bool isGrounded;
     float gravity
     {
         get
         {
-            return (-9.81f * gravityScale);
+            return -9.81f * gravityScale;
         }
     }
-
-    bool isGrounded;
-    Vector3 velocity;
-
-    void Start()
+    private void Update()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        //Debug.Log(velocityY);
+        Look();
         Move();
         Gravity();
         Jump();
     }
-
-    void Jump()
+    private void FixedUpdate()
     {
-        // 내가 땅에 있으면서 점프 키를 눌렀을 때.
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
-            velocity.y = Mathf.Sqrt(jumpHight * -2 * gravity);
+        CheckGround();
+    }
+    void Look()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        float x = Input.GetAxis("Mouse X") * sensitivityX * Time.deltaTime;
+        transform.Rotate(Vector3.up * x);
+
+        float y = Input.GetAxis("Mouse Y") * sensitivityY * Time.deltaTime;
+        rotationY += y;
+        rotationY = Mathf.Clamp(rotationY, -45f, 45f);
+
+        cameraLook.transform.localRotation = Quaternion.Euler(new Vector3(-rotationY, 0f, 0f));
     }
     void Move()
     {
-        float x = Input.GetAxis("Horizontal"); // Dictionary<string, .... >;
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = (transform.right * x) + (transform.forward * z);
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        float z = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        float x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        Vector3 move = transform.forward * z + transform.right * x;
+        controller.Move(move);
     }
     void Gravity()
     {
         if (isGrounded && velocity.y < 0)
             velocity.y = 0f;
-
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-
-    private void FixedUpdate()
+    void CheckGround()
     {
-        isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance * 0.1f, groundLayer);
+        isGrounded = Physics.CheckSphere(groundChecker.transform.position, groundCheckDistance * 0.1f, LayerMask.NameToLayer("Ground"));
+        Debug.Log(isGrounded);
+    }
+    void Jump()
+    {
+        if(isGrounded && Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("jump");
+            Debug.Log(velocity.y);
+            velocity.y += Mathf.Sqrt(jumpPower * -2 * gravity); ;
+        } 
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(groundChecker.position, groundDistance * 0.1f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(groundChecker.transform.position, groundCheckDistance * 0.1f);
     }
-
 }

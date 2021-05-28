@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
         Gravity();
         Jump();
     }
-
     void Jump()
     {
         // 내가 땅에 있으면서 점프 키를 눌렀을 때.
