@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject cameraLook;
     [SerializeField] CharacterController controller;
     [SerializeField] GameObject groundChecker;
+    [SerializeField] LayerMask layermask;
     [SerializeField] float groundCheckDistance;
     [SerializeField] float sensitivityX = 250f;
     [SerializeField] float sensitivityY = 250f;
@@ -24,6 +25,11 @@ public class PlayerController : MonoBehaviour
         {
             return -9.81f * gravityScale;
         }
+    }
+
+    private void OnEnable()
+    {
+        cameraLook.transform.localPosition = new Vector3(0f, 0.6f, 0.4f);
     }
     private void Update()
     {
@@ -65,8 +71,7 @@ public class PlayerController : MonoBehaviour
     }
     void CheckGround()
     {
-        isGrounded = Physics.CheckSphere(groundChecker.transform.position, groundCheckDistance * 0.1f, LayerMask.NameToLayer("Ground"));
-        Debug.Log(isGrounded);
+        isGrounded = Physics.CheckSphere(groundChecker.transform.position, groundCheckDistance * 0.1f, layermask);
     }
     void Jump()
     {

@@ -5,34 +5,35 @@ using UnityEngine.UI;
 
 public class InteractionUI : MonoBehaviour
 {
-    [SerializeField] Text interactionText;
-    GameObject[] childs;
+    [SerializeField] Text text;
+    bool isOn;
+    GameObject[] child;
 
     private void Start()
     {
-        childs = new GameObject[transform.childCount];
-        for (int i = 0; i < childs.Length; i++)
+        child = new GameObject[transform.childCount];
+        for(int i = 0;i< child.Length; i++)
         {
-            childs[i] = transform.GetChild(i).gameObject;
+            child[i] = transform.GetChild(i).gameObject;
         }
     }
-
-    private void SwitchChild(bool isOn)
+    private void Switch(bool isOn)
     {
-        for (int i = 0; i < childs.Length; i++)
-            childs[i].SetActive(isOn);
+        for (int i = 0; i < child.Length; i++) 
+        {
+            child[i].SetActive(isOn);
+        }
     }
-
     private void Update()
     {
-        if (string.IsNullOrEmpty(InteractionController.TargetName))
+        if(string.IsNullOrEmpty(PlayerInteraction.TargetName))
         {
-            SwitchChild(false);
+            Switch(false);
         }
         else
         {
-            SwitchChild(true);
-            interactionText.text = InteractionController.TargetName;
+            text.text = PlayerInteraction.TargetName;
+            Switch(true);
         }
     }
 
