@@ -13,7 +13,15 @@ public class UImanager : MonoBehaviour
         }
     }
 
-    [SerializeField] GameObject NpcChat;
+    [SerializeField] GameObject npcChat;
+    [SerializeField] GameObject interaction;
+    [SerializeField] GameObject cross;
+    public GameObject NpcChat
+    {
+        get { return npcChat; }
+    }
+
+
     private void Awake()
     {
         instance = this;
@@ -21,7 +29,9 @@ public class UImanager : MonoBehaviour
 
     public void OnChat(bool isOn)
     {
-        NpcChat.SetActive(isOn);
+        npcChat.SetActive(isOn);
+        interaction.SetActive(!isOn);
+        cross.SetActive(!isOn);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

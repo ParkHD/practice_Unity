@@ -16,7 +16,7 @@ public class PlayerInteraction : MonoBehaviour
         private set;
     }
     private void Start()
-    {
+    {   
         controller = GetComponent<PlayerController>();
     }
     private void Update()
@@ -29,23 +29,16 @@ public class PlayerInteraction : MonoBehaviour
             Iinteraction target = hit.collider.gameObject.GetComponent<Iinteraction>();
             if(target != null)
             {
-                Debug.Log("not null");
-
-                Debug.Log(hit.transform.name);
                 TargetName = target.GetName();
 
                 if(Input.GetKeyDown(interactionKey))
                 {
-                    Vector3 pos = new Vector3(transform.position.x - hit.transform.position.x, 0f, transform.position.z - hit.transform.position.z);
-                    hit.collider.transform.rotation = Quaternion.FromToRotation(Vector3.forward, pos);
                     target.OnInteract();
                 }
             }
             else
             {
-                Debug.Log("null");
                 Debug.Log(hit.transform.name);
-
             }
         }
         else

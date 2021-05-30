@@ -558,12 +558,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a344dabd5fdfd7429d156a655b5100c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NpcChat: {fileID: 1850381209}
+  npcChat: {fileID: 1850381209}
+  interaction: {fileID: 1538755915}
+  cross: {fileID: 1718182888}
 --- !u!4 &984546673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7251374340785056854, guid: ccba693075b2d574ba8afb0038539668, type: 3}
   m_PrefabInstance: {fileID: 236628128}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1083230449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083230451}
+  - component: {fileID: 1083230450}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1083230450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083230449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799e909c3572e94469d4db6a46b32367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 34813388}
+--- !u!4 &1083230451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083230449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1402, y: 440, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1403301507
 GameObject:
   m_ObjectHideFlags: 0
