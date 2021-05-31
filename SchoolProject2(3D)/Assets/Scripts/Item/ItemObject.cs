@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Item
 {
-    public new string name;
+    public ItemType name;
     public int count;
     public Item(Item copy)
     {
@@ -20,7 +20,7 @@ public class ItemObject : MonoBehaviour, Iinteraction
 
     public void OnInteract()
     {
-        Debug.Log(item.name);
+        PlayerStatus.Instance.inven.GetItem(item);
         Destroy(gameObject);
     }
     public string GetName()
