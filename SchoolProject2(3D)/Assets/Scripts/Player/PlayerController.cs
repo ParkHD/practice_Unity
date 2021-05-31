@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
         float y = Input.GetAxis("Mouse Y") * sensitivityY * Time.deltaTime;
         rotationY += y;
-        rotationY = Mathf.Clamp(rotationY, -45f, 45f);
+        rotationY = Mathf.Clamp(rotationY, -90f, 75f);
 
         cameraLook.transform.localRotation = Quaternion.Euler(new Vector3(-rotationY, 0f, 0f));
     }

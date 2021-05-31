@@ -38,7 +38,6 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                Debug.Log(hit.transform.name);
             }
         }
         else

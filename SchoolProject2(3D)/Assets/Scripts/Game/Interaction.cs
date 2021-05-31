@@ -7,14 +7,14 @@ public interface Iinteraction
     string GetName();
     void OnInteract();
 }
-public class Item : MonoBehaviour
-{
-    public new string name; 
-    public string GetName()
-    {
-        return name;
-    }
-}
+//public class Item : MonoBehaviour
+//{
+//    public new string name; 
+//    public string GetName()
+//    {
+//        return name;
+//    }
+//}
 public class Npc : MonoBehaviour, Iinteraction
 {
     [SerializeField] float turnSpeed;
