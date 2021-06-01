@@ -10,13 +10,13 @@ public class Inventory
     public void GetItem(Item item)
     {
         inven.Add(item);
-        ShowInven();
     }
     public void ShowInven()
     {
-        foreach(Item item in inven) 
+        Debug.Log("Inventory");
+        for(int i = 0;i<inven.Count;i++)
         {
-            Debug.Log(item.name);
+            Debug.Log(string.Format("{0}. {1}", i, inven[i].name));
         }
     }
 }
@@ -32,5 +32,16 @@ public class PlayerStatus : MonoBehaviour
     {
         instance = this;
         inven = new Inventory();
+    }
+    private void Update()
+    {
+        ShowInven();
+    }
+    public void ShowInven()
+    {
+        if(Input.GetKeyUp(KeyCode.I))
+        {
+            inven.ShowInven();
+        }
     }
 }

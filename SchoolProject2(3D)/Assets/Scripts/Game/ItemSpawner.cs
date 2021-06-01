@@ -5,14 +5,25 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] items;
-
+    [SerializeField] Vector2 range;
+    [SerializeField] int maxCount;
+    [SerializeField] int minCount;
     private void Start()
     {
         Spawn();
     }
     void Spawn()
     {
-        int index = Random.Range(0, 2);
-        Instantiate(items[index],transform.position, Quaternion.identity, transform);
+        int count = Random.Range(minCount, maxCount + 1); // 몇개생성
+
+        for(int i = 0;i<count;i++)
+        {
+            float posX = Random.Range(-range.x, range.x + 1);
+            float posZ = Random.Range(-range.y, range.y + 1);
+            int index = Random.Range(0, items.Length);// 
+
+            Vector3 Pos = new Vector3(posX, 0f, posZ); // 생성될 위치
+            Instantiate(items[index], transform.localPosition + Pos, Quaternion.identity, transform);
+        }
     }
 }
