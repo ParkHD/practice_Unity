@@ -11,6 +11,25 @@ public enum ItemType
 }
 
 public class ItemManager : MonoBehaviour
-{ 
+{
+    private static ItemManager instance;
+    public static ItemManager Instance => instance;
 
+    [SerializeField] ItemObject[] itemArray;
+    private void Awake()
+    {
+        instance = this;    
+    }
+
+    public ItemObject MakeItem(ItemType itemName, Transform transform)
+    {
+        for(int i = 0;i<itemArray.Length;i++)
+        {
+            if(itemArray[i].GetName() == itemName.ToString())
+            {
+                return Instantiate(itemArray[i],transform);
+            }
+        }
+        return null;
+    }
 }

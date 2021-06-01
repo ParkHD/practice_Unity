@@ -7,6 +7,7 @@ public class Item
 {
     public ItemType name;
     public int count;
+    public Sprite itemImage;
     public Item(Item copy)
     {
         name = copy.name;
@@ -25,6 +26,6 @@ public class ItemObject : MonoBehaviour, Iinteraction
     }
     public string GetName()
     {
-        return name;
+        return item.name.ToString();
     }
 }
