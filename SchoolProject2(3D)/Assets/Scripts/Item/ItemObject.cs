@@ -8,6 +8,7 @@ public class Item
     public ItemType name;
     public int count;
     public Sprite itemImage;
+    public string itemExplain;
     public Item(Item copy)
     {
         name = copy.name;

@@ -56,29 +56,29 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Divide.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Round.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\EventNode.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\NodeStyleAttribute.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Ceil.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Formula\FormulaOutput.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Floor.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Formula\Formula.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Evaluate.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Port.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\GraphUtility.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\IGraphProvider.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Sqrt.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Formula\FormulaGraph.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\FlowNode.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\FlowGraph.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Pow.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Add.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Multiply.cs" />
-    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Graph.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Subtract.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Node.cs" />
     <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Random.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Divide.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Round.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\NodeStyleAttribute.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Ceil.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Floor.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Formula\Formula.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Evaluate.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\IGraphProvider.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Formula\FormulaGraph.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\FlowGraph.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Flow Graph\Nodes\Math\Multiply.cs" />
+    <Compile Include="Assets\Devion Games\Graphs\Scripts\Runtime\Graph.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Devion Games\Graphs\Scripts\Runtime\DevionGames.Graphs.asmdef" />

@@ -56,16 +56,11 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\ChangeSpeed.cs" />
-    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\MotionState.cs" />
-    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\StateMachineBehavior\Instantiate.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Jump.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Climb.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\StateMachineBehavior\SetLayerWeight.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\StateMachineBehavior\PlaySound.cs" />
-    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\ThirdPersonController.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Camera\FocusTarget.cs" />
-    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\MotionTrigger.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\RandomMotion.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\SwimTrigger.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\ChangeHeight.cs" />
@@ -74,11 +69,16 @@
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Swim.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\ControllerInterfaces.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Camera\CameraSettings.cs" />
-    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Camera\ThirdPersonCamera.cs" />
-    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Ladder.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Slide.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Fall.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Push.cs" />
+    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\ChangeSpeed.cs" />
+    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\MotionState.cs" />
+    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\StateMachineBehavior\Instantiate.cs" />
+    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\ThirdPersonController.cs" />
+    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\MotionTrigger.cs" />
+    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Camera\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\Motions\Ladder.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Scripts\Runtime\Controller\PushableObject.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class Inventory
 {
+    public event System.Action<List<Item>> OnUpdateInven;
+
     List<Item> inven = new List<Item>();
 
     public void GetItem(Item item)
     {
         inven.Add(item);
+        OnUpdateInven(inven);
     }
     public void ShowInven()
     {
@@ -26,8 +29,10 @@ public class PlayerStatus : MonoBehaviour
     private static PlayerStatus instance;
     public static PlayerStatus Instance => instance;
 
-    public Inventory inven;
+    [SerializeField] GameObject invenUI;
 
+    public Inventory inven;
+    bool OnInven;
     private void Awake()
     {
         instance = this;
@@ -41,7 +46,17 @@ public class PlayerStatus : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.I))
         {
-            inven.ShowInven();
+            if(OnInven)
+            {
+                invenUI.SetActive(true);
+                inven.ShowInven();
+                OnInven = false;
+            }
+            else
+            {
+                invenUI.SetActive(false);
+                OnInven = true;
+            }
         }
     }
 }

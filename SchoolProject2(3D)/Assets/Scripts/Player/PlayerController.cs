@@ -26,7 +26,10 @@ public class PlayerController : MonoBehaviour
             return -9.81f * gravityScale;
         }
     }
-
+    private void Start()
+    {
+        UImanager.Instance.OnCursor(false);
+    }
     private void OnEnable()
     {
         cameraLook.transform.localPosition = new Vector3(0f, 0.6f, 0.4f);
@@ -45,7 +48,6 @@ public class PlayerController : MonoBehaviour
     }
     void Look()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         float x = Input.GetAxis("Mouse X") * sensitivityX * Time.deltaTime;
         transform.Rotate(Vector3.up * x);
 

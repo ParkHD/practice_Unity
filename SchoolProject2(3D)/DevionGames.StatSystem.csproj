@@ -58,34 +58,34 @@
   <ItemGroup>
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\RemoveModifier.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\ApplyDamage.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\UIStat.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\AddModifier.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatCallback.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\AddEffect.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\DamageData.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatModifier.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Settings\Default.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\RemoveEffect.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatPickerAttribute.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Nodes\GetStatCurrentValue.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Stat.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatDatabase.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Settings\SavingLoading.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\AddValue.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Level.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Nodes\StatNode.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Settings\Settings.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\Refresh.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\SelectableUIStat.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\SubtractValue.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\Compare.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Nodes\GetStatValue.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Settings\Notifications.cs" />
-    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatsHandler.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Settings\UI.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatEffect.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Attribute.cs" />
     <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatsManager.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\UIStat.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatCallback.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\AddEffect.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatPickerAttribute.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\AddValue.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Level.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\SubtractValue.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Actions\Compare.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\Nodes\GetStatValue.cs" />
+    <Compile Include="Assets\Devion Games\Stat System\Scripts\Runtime\StatsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Devion Games\Stat System\Scripts\Runtime\DevionGames.StatSystem.asmdef" />

@@ -21,10 +21,15 @@ public class UImanager : MonoBehaviour
         get { return npcChat; }
     }
 
-
     private void Awake()
     {
         instance = this;
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            StartCoroutine(Switching(child.gameObject));
+        }
     }
 
     public void OnChat(bool isOn)
@@ -32,7 +37,24 @@ public class UImanager : MonoBehaviour
         npcChat.SetActive(isOn);
         interaction.SetActive(!isOn);
         cross.SetActive(!isOn);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        OnCursor(isOn);
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+    }
+    public void ConstraingUI(bool isOn)
+    {
+        interaction.SetActive(!isOn);
+        cross.SetActive(!isOn);
+    }
+    public void OnCursor(bool isOn)
+    {
+        Cursor.lockState = isOn ? CursorLockMode.None : CursorLockMode.Locked ;
+    }
+    IEnumerator Switching(GameObject target)
+    {
+        bool isBefore = target.activeSelf;
+        target.SetActive(true);
+        yield return new WaitForEndOfFrame(); // 1프레임을 기다린다.
+        target.SetActive(isBefore);
     }
 }

@@ -57,33 +57,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
-    <Compile Include="Assets\Scripts\UI\InteractionUI.cs" />
+    <Compile Include="Assets\Scripts\UI\InventorySlotUI.cs" />
     <Compile Include="Assets\Scripts\Item\AmmoObject.cs" />
     <Compile Include="Assets\Scripts\Item\ItemObject.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerStatus.cs" />
-    <Compile Include="Assets\Scripts\UI\UImanager.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Game\ItemSpawner.cs" />
-    <Compile Include="Assets\Scripts\Game\Interaction.cs" />
-    <Compile Include="Assets\Scripts\Player\CameraLook.cs" />
-    <Compile Include="Assets\Scripts\NPC\Npc_Weapon.cs" />
-    <Compile Include="Assets\Scripts\Item\ItemManager.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
-    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterBase.cs" />
-    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_RandomScale.cs" />
     <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\Displace.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStatus.cs" />
+    <Compile Include="Assets\Scripts\UI\InventoryUI.cs" />
+    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_AnimSpeedRandomizer.cs" />
+    <Compile Include="Assets\Scripts\NPC\Npc_Weapon.cs" />
+    <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_DestroyTimed.cs" />
+    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\Devion Games\Triggers\Integrations\UI Widgets\Scripts\Runtime\YesNoDialog.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemManager.cs" />
+    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\SpecularLighting.cs" />
+    <Compile Include="Assets\Scripts\UI\InteractionUI.cs" />
+    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterBase.cs" />
+    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_TrailFade.cs" />
-    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\Scripts\UI\UImanager.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_Rotate.cs" />
+    <Compile Include="Assets\Scripts\Game\ItemSpawner.cs" />
+    <Compile Include="Assets\Scripts\Game\Interaction.cs" />
     <Compile Include="Assets\Devion Games\Third Person Controller\Example\Particles\Impact\Scripts\AutoDestruct.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraLook.cs" />
     <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Sources\Scripts\Water.cs" />
-    <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_AnimSpeedRandomizer.cs" />
-    <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_DestroyTimed.cs" />
-    <Compile Include="Assets\Devion Games\Triggers\Integrations\UI Widgets\Scripts\Runtime\YesNoDialog.cs" />
-    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterTile.cs" />
-    <Compile Include="Assets\Devion Games\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\SpecularLighting.cs" />
+    <Compile Include="Assets\Scripts\Game\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
     <Compile Include="Assets\Devion Games\Inventory System\Examples\Particle Effects\ShurikenMagic\Scripts\SM_PrefabGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -675,14 +678,14 @@
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TerrainTools.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TerrainTools.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -707,33 +710,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="DevionGames.Triggers.csproj">
-      <Project>{B5219E57-1E2E-E1BB-E553-8C9BFB9CA088}</Project>
-      <Name>DevionGames.Triggers</Name>
-    </ProjectReference>
-    <ProjectReference Include="DevionGames.StatSystem.csproj">
-      <Project>{12764BDA-777D-645F-7819-4D68EB190C56}</Project>
-      <Name>DevionGames.StatSystem</Name>
-    </ProjectReference>
     <ProjectReference Include="DevionGames.Utilities.csproj">
       <Project>{86D68032-B34F-9449-B996-036108B98FEE}</Project>
       <Name>DevionGames.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="DevionGames.ThirdPersonController.csproj">
-      <Project>{168AF1EE-F72B-5844-E836-B4EA546B0B7D}</Project>
-      <Name>DevionGames.ThirdPersonController</Name>
     </ProjectReference>
     <ProjectReference Include="DevionGames.InventorySystem.csproj">
       <Project>{85A1D1D7-1EDB-F37B-E04A-A0B8EA2F7843}</Project>
       <Name>DevionGames.InventorySystem</Name>
     </ProjectReference>
-    <ProjectReference Include="DevionGames.UIWidgets.csproj">
-      <Project>{2BA4716E-D9B3-0A19-DD1B-493C4A925389}</Project>
-      <Name>DevionGames.UIWidgets</Name>
+    <ProjectReference Include="DevionGames.Triggers.csproj">
+      <Project>{B5219E57-1E2E-E1BB-E553-8C9BFB9CA088}</Project>
+      <Name>DevionGames.Triggers</Name>
     </ProjectReference>
     <ProjectReference Include="DevionGames.Graphs.csproj">
       <Project>{12647BF0-A9D9-1D60-D457-37A7C513E634}</Project>
       <Name>DevionGames.Graphs</Name>
+    </ProjectReference>
+    <ProjectReference Include="DevionGames.ThirdPersonController.csproj">
+      <Project>{168AF1EE-F72B-5844-E836-B4EA546B0B7D}</Project>
+      <Name>DevionGames.ThirdPersonController</Name>
+    </ProjectReference>
+    <ProjectReference Include="DevionGames.UIWidgets.csproj">
+      <Project>{2BA4716E-D9B3-0A19-DD1B-493C4A925389}</Project>
+      <Name>DevionGames.UIWidgets</Name>
+    </ProjectReference>
+    <ProjectReference Include="DevionGames.StatSystem.csproj">
+      <Project>{12764BDA-777D-645F-7819-4D68EB190C56}</Project>
+      <Name>DevionGames.StatSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
