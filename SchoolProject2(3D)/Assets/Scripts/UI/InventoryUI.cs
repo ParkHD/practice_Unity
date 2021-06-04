@@ -8,20 +8,24 @@ public class InventoryUI : Singleton<InventoryUI>
     [SerializeField] InventorySlotUI itemSlot;
     [SerializeField] Text itemInfo;
     [SerializeField] Text itemName;
+    [SerializeField] Image itemImage;
     [SerializeField] Transform slotParent;
 
     InventorySlotUI[] allSlots;
-
+    private void Start()
+    {
+        Clear();
+    }
     private void OnEnable()
     {
-        if(allSlots == null)
+        if (allSlots == null)
         {
             allSlots = slotParent.GetComponentsInChildren<InventorySlotUI>();
             PlayerStatus.Instance.inven.OnUpdateInven += OnUpdateInven;
-            itemSlot.OnShowInfo += OnShowInfo;
-            for(int i =0;i<allSlots.Length;i++)
+            for (int i = 0; i < allSlots.Length; i++)
             {
                 allSlots[i].OnShowInfo += OnShowInfo;
+                allSlots[i].OnItemInfoClear += OnItemInfoClear;
             }
         }
 
@@ -31,10 +35,11 @@ public class InventoryUI : Singleton<InventoryUI>
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-    
+
     private void Clear()
     {
-        for(int i = 0;i< allSlots.Length;i++)
+        OnItemInfoClear();
+        for (int i = 0; i < allSlots.Length; i++)
         {
             allSlots[i].Clear();
         }
@@ -42,7 +47,7 @@ public class InventoryUI : Singleton<InventoryUI>
     private void OnUpdateInven(List<Item> list)
     {
         Clear();
-        for(int i = 0;i<list.Count;i++)
+        for (int i = 0; i < list.Count; i++)
         {
             allSlots[i].SetUp(list[i]);
         }
@@ -50,8 +55,18 @@ public class InventoryUI : Singleton<InventoryUI>
 
     private void OnShowInfo(Item item)
     {
-        itemSlot.SetUp(item);
+        if (item == null)
+            return;
+
         itemName.text = item.name.ToString();
         itemInfo.text = item.itemExplain;
+        itemImage.enabled = true;
+        itemImage.sprite = item.itemImage;
+    }
+    private void OnItemInfoClear()
+    {
+        itemName.text = string.Empty;
+        itemInfo.text = string.Empty;
+        itemImage.enabled = false;
     }
 }

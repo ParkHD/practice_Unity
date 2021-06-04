@@ -16,7 +16,12 @@ public class InventorySlotUI : MonoBehaviour
     {
         
     }
+    private void Start()
+    {
+        Clear();
+    }
     public event System.Action<Item> OnShowInfo;
+    public event System.Action OnItemInfoClear;
 
     public void OnCursorEnter()
     {
@@ -26,6 +31,7 @@ public class InventorySlotUI : MonoBehaviour
     public void OnCursorExit()
     {
         outline.enabled = false;
+        OnItemInfoClear?.Invoke();
     }
     public void SetUp(Item item)
     {
@@ -34,7 +40,6 @@ public class InventorySlotUI : MonoBehaviour
         itemImage.enabled = true;
         itemImage.sprite = item.itemImage;
         Count.text = this.item.count > 0 ?item.count.ToString() : string.Empty;
-        Debug.Log(item.count);
         outline.enabled = false;
     }
     public void Clear()
