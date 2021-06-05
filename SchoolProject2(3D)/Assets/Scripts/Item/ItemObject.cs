@@ -29,4 +29,8 @@ public class ItemObject : MonoBehaviour, Iinteraction
     {
         return item.name.ToString();
     }
+    public new ItemType GetType()
+    {
+        return item.name;
+    }
 }

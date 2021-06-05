@@ -21,13 +21,13 @@ public class ItemManager : MonoBehaviour
         instance = this;    
     }
 
-    public ItemObject MakeItem(ItemType itemName, Transform transform)
+    public ItemObject MakeItem(ItemType itemName)
     {
         for(int i = 0;i<itemArray.Length;i++)
         {
-            if(itemArray[i].GetName() == itemName.ToString())
+            if(itemArray[i].GetType() == itemName)
             {
-                return Instantiate(itemArray[i],transform);
+                return Instantiate(itemArray[i]);
             }
         }
         return null;

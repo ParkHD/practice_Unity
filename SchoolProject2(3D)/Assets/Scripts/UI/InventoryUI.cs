@@ -10,7 +10,7 @@ public class InventoryUI : Singleton<InventoryUI>
     [SerializeField] Image itemImage;
     [SerializeField] Transform slotParent;
     [SerializeField] InventorySlotUI dummyItem;
-
+    [SerializeField] RectTransform backImage;
     InventorySlotUI[] allSlots;
     private void Start()
     {
@@ -85,11 +85,19 @@ public class InventoryUI : Singleton<InventoryUI>
     {
         dummyItem.transform.position = Input.mousePosition;
     }
-    private void OnDragEnd()
+    private void OnDragEnd(InventorySlotUI slot)
     {
-        Debug.Log("º¯°æ " + InventorySlotUI.CurSlotIndex);
-
         dummyItem.gameObject.SetActive(false);
+        if (RectTransformUtility.RectangleContainsScreenPoint(backImage, Input.mousePosition))
+        {
+            Debug.Log(slot.transform.GetSiblingIndex());
+            Debug.Log(InventorySlotUI.TargetSlotIndex);
+            PlayerStatus.Instance.inven.MoveItem(slot.transform.GetSiblingIndex(), InventorySlotUI.TargetSlotIndex);
+        }
+        else
+        {
+            PlayerStatus.Instance.inven.DropItem(slot.transform.GetSiblingIndex(), PlayerStatus.Instance.transform);;
+        }
     }
     
 }

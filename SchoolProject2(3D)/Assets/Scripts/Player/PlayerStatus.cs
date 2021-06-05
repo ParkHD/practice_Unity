@@ -25,11 +25,21 @@ public class Inventory
     {
         
     }
-    public void SwapItem(int originIndex, int targetIndex)
+    public void MoveItem(int originIndex, int targetIndex)
     {
         Item temp = inven[originIndex];
         inven[originIndex] = inven[targetIndex];
         inven[targetIndex] = temp;
+        OnUpdateInven(inven);
+    }
+    public void DropItem(int index, Transform pos)
+    {
+        ItemObject dropitem = ItemManager.Instance.MakeItem(inven[index].name);
+        dropitem.transform.position = pos.position + pos.forward;
+        dropitem.GetComponent<Rigidbody>().AddForce(pos.forward * 6f, ForceMode.Impulse);
+
+        inven[index] = null;
+        
         OnUpdateInven(inven);
     }
 }
@@ -67,5 +77,9 @@ public class PlayerStatus : MonoBehaviour
                 OnInven = true;
             }
         }
+    }
+    public void DropItem(int index)
+    {
+
     }
 }

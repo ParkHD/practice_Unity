@@ -11,8 +11,8 @@ public class InventorySlotUI : MonoBehaviour
     [SerializeField] Image back;
 
     Item item;
-    static int curSlotIndex;
-    public static int CurSlotIndex => curSlotIndex;
+    static int targetSlotIndex;
+    public static int TargetSlotIndex => targetSlotIndex;
 
     private void Awake()
     {
@@ -25,13 +25,12 @@ public class InventorySlotUI : MonoBehaviour
     public event System.Action OnItemInfoClear;
     public event System.Action<Item> OnDragBegin;
     public event System.Action OnDragging;
-    public event System.Action OnDragEnd;
+    public event System.Action<InventorySlotUI> OnDragEnd;
 
 
     public void OnCursorEnter()
     {
-        curSlotIndex = transform.GetSiblingIndex();
-        Debug.Log(curSlotIndex);
+        targetSlotIndex = transform.GetSiblingIndex();
 
         outline.enabled = true;
         OnShowInfo?.Invoke(item);
@@ -51,9 +50,7 @@ public class InventorySlotUI : MonoBehaviour
     }
     public void OnCursorDragEnd()
     {
-        Debug.Log("ÇöÀç" + transform.GetSiblingIndex());
-        PlayerStatus.Instance.inven.SwapItem(transform.GetSiblingIndex(), CurSlotIndex);
-        OnDragEnd?.Invoke();
+        OnDragEnd?.Invoke(this);
         
     }
     public void SetUp(Item item)

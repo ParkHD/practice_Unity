@@ -22,7 +22,7 @@ public class ItemSpawner : MonoBehaviour
             int index = Random.Range(0, items.Length);// 
 
             Vector3 Pos = new Vector3(posX, 0f, posZ); // 생성될 위치
-            ItemObject newItem = ItemManager.Instance.MakeItem(items[index], transform);
+            ItemObject newItem = ItemManager.Instance.MakeItem(items[index]);
             newItem.transform.position = transform.localPosition + Pos;
         }
         //int count = Random.Range(minCount, maxCount + 1); // 몇개생성
