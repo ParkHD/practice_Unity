@@ -5,22 +5,32 @@ using UnityEngine;
 
 public class Inventory
 {
-    public event System.Action<List<Item>> OnUpdateInven;
+    public event System.Action<Item[]> OnUpdateInven;
 
-    List<Item> inven = new List<Item>();
+    Item[] inven = new Item[15];
 
     public void GetItem(Item item)
     {
-        inven.Add(item);
+        for(int i = 0;i<inven.Length;i++)
+        {
+            if(inven[i] == null)
+            {
+                inven[i] = item;
+                break;
+            }
+        }
         OnUpdateInven(inven);
     }
     public void ShowInven()
     {
-        Debug.Log("Inventory");
-        for(int i = 0;i<inven.Count;i++)
-        {
-            Debug.Log(string.Format("{0}. {1}", i, inven[i].name));
-        }
+        
+    }
+    public void SwapItem(int originIndex, int targetIndex)
+    {
+        Item temp = inven[originIndex];
+        inven[originIndex] = inven[targetIndex];
+        inven[targetIndex] = temp;
+        OnUpdateInven(inven);
     }
 }
 
@@ -49,7 +59,6 @@ public class PlayerStatus : MonoBehaviour
             if(OnInven)
             {
                 invenUI.SetActive(true);
-                inven.ShowInven();
                 OnInven = false;
             }
             else

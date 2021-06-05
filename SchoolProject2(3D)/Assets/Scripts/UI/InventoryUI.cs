@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class InventoryUI : Singleton<InventoryUI>
 {
-    [SerializeField] InventorySlotUI itemSlot;
     [SerializeField] Text itemInfo;
     [SerializeField] Text itemName;
     [SerializeField] Image itemImage;
     [SerializeField] Transform slotParent;
+    [SerializeField] InventorySlotUI dummyItem;
 
     InventorySlotUI[] allSlots;
     private void Start()
@@ -22,10 +22,14 @@ public class InventoryUI : Singleton<InventoryUI>
         {
             allSlots = slotParent.GetComponentsInChildren<InventorySlotUI>();
             PlayerStatus.Instance.inven.OnUpdateInven += OnUpdateInven;
+
             for (int i = 0; i < allSlots.Length; i++)
             {
                 allSlots[i].OnShowInfo += OnShowInfo;
                 allSlots[i].OnItemInfoClear += OnItemInfoClear;
+                allSlots[i].OnDragBegin += OnDragBegin;
+                allSlots[i].OnDragging += OnDragging;
+                allSlots[i].OnDragEnd += OnDragEnd;
             }
         }
 
@@ -44,11 +48,13 @@ public class InventoryUI : Singleton<InventoryUI>
             allSlots[i].Clear();
         }
     }
-    private void OnUpdateInven(List<Item> list)
+    private void OnUpdateInven(Item[] list)
     {
         Clear();
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < list.Length; i++)
         {
+            if (list[i] == null)
+                continue;
             allSlots[i].SetUp(list[i]);
         }
     }
@@ -69,4 +75,21 @@ public class InventoryUI : Singleton<InventoryUI>
         itemInfo.text = string.Empty;
         itemImage.enabled = false;
     }
+    private void OnDragBegin(Item item)
+    {
+        dummyItem.gameObject.SetActive(true);
+
+        dummyItem.SetUp(item);
+    }
+    private void OnDragging()
+    {
+        dummyItem.transform.position = Input.mousePosition;
+    }
+    private void OnDragEnd()
+    {
+        Debug.Log("º¯°æ " + InventorySlotUI.CurSlotIndex);
+
+        dummyItem.gameObject.SetActive(false);
+    }
+    
 }
