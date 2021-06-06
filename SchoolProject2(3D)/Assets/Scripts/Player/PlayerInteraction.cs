@@ -10,6 +10,9 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] KeyCode interactionKey;
 
     public static PlayerController controller;
+
+    Iinteraction target;
+
     public static string TargetName
     {
         get;
@@ -18,6 +21,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Start()
     {   
         controller = GetComponent<PlayerController>();
+        PlayerStatus.Instance.OnRegestedEvent(interactionKey, OnInteract);
     }
     private void Update()
     {
@@ -26,15 +30,10 @@ public class PlayerInteraction : MonoBehaviour
         Debug.DrawRay(interactionPivot.position, interactionPivot.forward * interactionDis, Color.red);
         if (Physics.Raycast(ray, out hit, interactionDis, layermask))
         {
-            Iinteraction target = hit.collider.gameObject.GetComponent<Iinteraction>();
+            target = hit.collider.gameObject.GetComponent<Iinteraction>();
             if(target != null)
             {
                 TargetName = target.GetName();
-
-                if(Input.GetKeyDown(interactionKey))
-                {
-                    target.OnInteract();
-                }
             }
             else
             {
@@ -42,5 +41,14 @@ public class PlayerInteraction : MonoBehaviour
         }
         else
             TargetName = string.Empty;
+    }
+    void OnInteract()
+    {
+        if (target == null)
+            return;
+        if (Input.GetKeyDown(interactionKey))
+        {
+            target.OnInteract();
+        }
     }
 }

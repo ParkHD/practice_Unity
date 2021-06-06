@@ -36,11 +36,15 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(velocityY);
-        Look();
-        Move();
+        if(!PlayerStatus.Instance.IsStopRotate)
+            Look();
+        if(!PlayerStatus.Instance.IsStopMove)
+        {
+            Move();
+            Jump();
+        }
         Gravity();
-        Jump();
+        
     }
     private void FixedUpdate()
     {

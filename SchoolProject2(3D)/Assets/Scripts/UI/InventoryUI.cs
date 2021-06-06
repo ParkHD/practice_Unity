@@ -50,17 +50,15 @@ public class InventoryUI : Singleton<InventoryUI>
     }
     private void OnUpdateInven(Item[] list)
     {
-        Clear();
         for (int i = 0; i < list.Length; i++)
         {
-            if (list[i] == null)
-                continue;
             allSlots[i].SetUp(list[i]);
         }
     }
 
     private void OnShowInfo(Item item)
     {
+        OnItemInfoClear();
         if (item == null)
             return;
 
@@ -90,8 +88,6 @@ public class InventoryUI : Singleton<InventoryUI>
         dummyItem.gameObject.SetActive(false);
         if (RectTransformUtility.RectangleContainsScreenPoint(backImage, Input.mousePosition))
         {
-            Debug.Log(slot.transform.GetSiblingIndex());
-            Debug.Log(InventorySlotUI.TargetSlotIndex);
             PlayerStatus.Instance.inven.MoveItem(slot.transform.GetSiblingIndex(), InventorySlotUI.TargetSlotIndex);
         }
         else

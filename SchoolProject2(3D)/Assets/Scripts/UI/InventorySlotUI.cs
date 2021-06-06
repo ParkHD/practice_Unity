@@ -55,15 +55,20 @@ public class InventorySlotUI : MonoBehaviour
     }
     public void SetUp(Item item)
     {
-        this.item = item;
-        Debug.Log("Dd");
-        itemImage.enabled = true;
-        itemImage.sprite = item.itemImage;
-        Count.text = this.item.count > 0 ?item.count.ToString() : string.Empty;
-        outline.enabled = false;
+        if (item == null)
+            Clear();
+        else
+        {
+            this.item = item;
+            itemImage.enabled = true;
+            itemImage.sprite = item.itemImage;
+            Count.text = this.item.count > 0 ? item.count.ToString() : string.Empty;
+            outline.enabled = false;
+        }
     }
     public void Clear()
     {
+        item = null;
         itemImage.enabled = false;
         Count.text = string.Empty;
         outline.enabled = false;
