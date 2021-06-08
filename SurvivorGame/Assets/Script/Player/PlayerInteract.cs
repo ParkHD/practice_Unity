@@ -7,27 +7,38 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] Transform rayPivot;
     [SerializeField] float interactRange;
     [SerializeField] LayerMask targetLayer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    public static string TargetName
+    {
+        get;
+        private set;
+    }
     // Update is called once per frame
     void Update()
     {
-        Interact();
+        Search();
     }
-    void Interact()
+    void Search()
     {
         Ray ray = new Ray(rayPivot.position, rayPivot.forward);
         RaycastHit hit;
 
-        Debug.DrawRay(rayPivot.position, rayPivot.forward * interactRange,Color.red);
+        Debug.DrawRay(rayPivot.position, rayPivot.forward * interactRange, Color.red);
         if (Physics.Raycast(ray, out hit, interactRange, targetLayer))
         {
-            Debug.Log(hit.collider.name);
+            Iinteraction target = hit.transform.GetComponent<Iinteraction>();
+            if (target != null)
+            {
+                TargetName = target.GetName().ToString();
+                if(Input.GetKeyDown(KeyCode.F))
+                {
+                    target.OnInteract();
+                }
+            }
         }
-
+        else
+        {
+            TargetName = null;
+        }
     }
 }

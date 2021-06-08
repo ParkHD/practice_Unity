@@ -11,7 +11,9 @@ public class Ammo : Item
     }
 }
 
-public class AmmoObject : ItemObject
+public class AmmoObject : ItemObject, Iinteraction
 {
+    
+
 
 }
