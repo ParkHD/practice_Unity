@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
     }
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     private void Update()
     {
         Move();
@@ -39,6 +43,5 @@ public class PlayerController : MonoBehaviour
         RotationX += lookUp;
         RotationX = Mathf.Clamp(RotationX, LookUpMin, LookUpMax);
         camera.transform.localRotation = Quaternion.Euler(Vector3.left * RotationX);
-        Cursor.lockState = CursorLockMode.Locked;
     }
 }

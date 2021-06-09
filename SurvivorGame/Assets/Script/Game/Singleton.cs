@@ -8,7 +8,7 @@ public class Singleton<T> : MonoBehaviour
     static T instance;
     public static T Instance => instance;
 
-    private void Awake()
+    protected void Awake()
     {
         instance = this as T;
     }
