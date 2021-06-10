@@ -14,8 +14,21 @@ public class InventorySlotUI : MonoBehaviour
 
     public event Action<Item> ShowInfo;
     public event Action ClearInfo;
+    public event Action<Item> DragBegin;
+    public event Action Dragging;
+    public event Action DragEnd;
+
+    public static int targetIndex;
+
+    private void OnEnable()
+    {
+        if (selectedImage == null)
+            return;
+        selectedImage.enabled = false;
+    }
     public void OnCursorEnter()
     {
+        targetIndex = transform.GetSiblingIndex();
         selectedImage.enabled = true;
         ShowInfo(item);
     }
@@ -24,7 +37,19 @@ public class InventorySlotUI : MonoBehaviour
         selectedImage.enabled = false;
         ClearInfo();
     }
-    
+    public void OnDragBegin()
+    {
+        DragBegin(item);
+    }
+    public void OnDragging()
+    {
+        Dragging();
+    }
+    public void OnDragEnd()
+    {
+        DragEnd();
+    }
+
     public void SetUp(Item item)
     {
         this.item = item;

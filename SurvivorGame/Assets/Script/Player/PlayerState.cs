@@ -11,7 +11,11 @@ public class Inventory
     {
         itemArray = new Item[15];
     }
-
+    public void ShowInven()
+    {
+        UIManager.Instance.ShowInven();
+        UpdateInven?.Invoke(itemArray); 
+    }
     public void GetItem(Item item)
     {
         for(int i = 0;i<itemArray.Length;i++)
@@ -23,6 +27,14 @@ public class Inventory
                 break;
             }
         }
+    }
+    public void MoveItem(int originIndex, int targetIndex)
+    {
+        Item temp = itemArray[originIndex];
+        itemArray[originIndex] = itemArray[targetIndex];
+        itemArray[targetIndex] = temp;
+
+        UpdateInven(itemArray);
     }
 }
 
@@ -41,8 +53,12 @@ public class PlayerState : Singleton<PlayerState>
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            UIManager.Instance.ShowInven();
+            ShowInven();
         }
+    }
+    private void ShowInven()
+    {
+        inven.ShowInven();
     }
     public void GetItem(Item item)
     {

@@ -11,6 +11,7 @@ public class InventoryUI : Singleton<InventoryUI>
     [SerializeField] Image selectedItemImage;
     [SerializeField] Text selectedItemName;
     [SerializeField] Text selectedItemInfo;
+    [SerializeField] InventorySlotUI dummySlot;
 
     private void Awake()
     {
@@ -22,11 +23,14 @@ public class InventoryUI : Singleton<InventoryUI>
         {
             slots[i].ShowInfo += ShowInfo;
             slots[i].ClearInfo += ClearInfo;
+            slots[i].DragBegin += DragBegin;
+            slots[i].Dragging += Dragging;
+            slots[i].DragEnd += DragEnd;
         }
     }
-    private void Start()
+    private void OnEnable()
     {
-        ClearInven();
+        ClearInfo();
     }
     private void UpdateInven(Item[] itemArray)
     {
@@ -45,6 +49,22 @@ public class InventoryUI : Singleton<InventoryUI>
         selectedItemImage.sprite = item.ItemImage;
         selectedItemInfo.text = item.Info;
         selectedItemName.text = item.Name.ToString();
+    }
+    private void DragBegin(Item item)
+    {
+        dummySlot.SetUp(item);
+        dummySlot.gameObject.SetActive(true);
+    }
+    private void Dragging()
+    {
+        dummySlot.transform.position = Input.mousePosition;
+    }
+    private void DragEnd()
+    {
+        dummySlot.gameObject.SetActive(false);
+        int targetIndex = InventorySlotUI.targetIndex;
+        Debug.Log("Origin : " + transform.GetSiblingIndex()); 
+        Debug.Log("target : " + targetIndex); 
     }
     private void ClearInfo()
     {
