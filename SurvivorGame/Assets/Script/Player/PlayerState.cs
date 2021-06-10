@@ -64,5 +64,5 @@ public class PlayerState : Singleton<PlayerState>
     {
         inven.GetItem(item);
     }
-    
+    public void 
 }
