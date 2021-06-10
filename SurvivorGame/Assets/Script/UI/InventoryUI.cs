@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class InventoryUI : Singleton<InventoryUI>
 {
-    InventorySlotUI[] slots;
+    InventorySlot[] slots;
 
     [SerializeField] Image selectedItemImage;
     [SerializeField] Text selectedItemName;
     [SerializeField] Text selectedItemInfo;
-    [SerializeField] InventorySlotUI dummySlot;
+    [SerializeField] InventorySlot dummySlot;
 
     private void Awake()
     {
         base.Awake();
-        slots = GetComponentsInChildren<InventorySlotUI>();
+        slots = GetComponentsInChildren<InventorySlot>();
         PlayerState.Instance.Inven.UpdateInven += UpdateInven;
 
         for(int i = 0;i<slots.Length;i++)
@@ -62,8 +62,9 @@ public class InventoryUI : Singleton<InventoryUI>
     private void DragEnd()
     {
         dummySlot.gameObject.SetActive(false);
-        int targetIndex = InventorySlotUI.targetIndex;
-        Debug.Log("Origin : " + transform.GetSiblingIndex()); 
+        int targetIndex = InventorySlot.targetIndex;
+        int originIndex = InventorySlot.originIndex;
+        Debug.Log("Origin : " + originIndex); 
         Debug.Log("target : " + targetIndex); 
     }
     private void ClearInfo()
