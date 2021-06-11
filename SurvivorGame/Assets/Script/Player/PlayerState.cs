@@ -40,8 +40,6 @@ public class Inventory
 
 public class PlayerState : Singleton<PlayerState>
 {
-    [SerializeField] GameObject inventoryUI;
-    
     Inventory inven;
     public Inventory Inven => inven;
     private void Awake()
@@ -64,5 +62,5 @@ public class PlayerState : Singleton<PlayerState>
     {
         inven.GetItem(item);
     }
-    public void 
+
 }

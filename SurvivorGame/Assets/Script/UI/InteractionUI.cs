@@ -7,10 +7,6 @@ public class InteractionUI : MonoBehaviour
 {
     [SerializeField] Text targetName;
     GameObject[] child;
-    private void Awake()
-    {
-
-    }
     private void Start()
     {
         child = new GameObject[transform.childCount];
