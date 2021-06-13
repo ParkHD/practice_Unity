@@ -29,7 +29,8 @@ public class PlayerInteract : MonoBehaviour
             Iinteraction target = hit.transform.GetComponent<Iinteraction>();
             if (target != null)
             {
-                TargetName = target.GetName().ToString();
+                TargetName = target.GetName();
+                Debug.Log(TargetName);
                 if(Input.GetKeyDown(KeyCode.F))
                 {
                     target.OnInteract();

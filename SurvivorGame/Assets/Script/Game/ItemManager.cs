@@ -6,7 +6,7 @@ public class ItemManager : Singleton<ItemManager>
 {
     [SerializeField] ItemObject[] itemArray;
 
-    public ItemObject MakeItem(ITEM_TYPE itemName)
+    public ItemObject MakeItem(string itemName)
     {
         for(int i = 0;i<itemArray.Length;i++)
         {

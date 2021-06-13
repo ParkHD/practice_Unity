@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Game\ItemSpawner.cs" />
+    <Compile Include="Assets\Script\UI\ItemLogSlot.cs" />
     <Compile Include="Assets\Script\Player\PlayerInteract.cs" />
     <Compile Include="Assets\Script\Item\AmmoObject.cs" />
     <Compile Include="Assets\Script\Game\ItemManager.cs" />
@@ -65,12 +66,12 @@
     <Compile Include="Assets\Script\Player\PlayerState.cs" />
     <Compile Include="Assets\Script\Item\ItemObject.cs" />
     <Compile Include="Assets\Script\UI\InventoryUI.cs" />
+    <Compile Include="Assets\Script\UI\ItemLogUI.cs" />
     <Compile Include="Assets\Script\UI\InteractionUI.cs" />
     <Compile Include="Assets\Script\Game\Interact.cs" />
     <Compile Include="Assets\Script\Game\Singleton.cs" />
     <Compile Include="Assets\Script\UI\UIManager.cs" />
-    <Compile Include="Assets\Script\UI\ItemLogUI.cs" />
-    <Compile Include="Assets\Script\UI\ItemLogSlot.cs" />
+    <Compile Include="Assets\Script\ItemData\Ammo.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Cainos\Pixel Art Icon Pack - RPG\Shader\SH UI Icon Outline Color.shader" />

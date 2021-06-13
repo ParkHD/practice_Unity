@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    [SerializeField] ITEM_TYPE itemName;
+    [SerializeField] Item targetItem;
     [SerializeField] Transform spawnPivot;
     private void Start()
     {
-        ItemObject item = ItemManager.Instance.MakeItem(itemName);
+        ItemObject item = ItemManager.Instance.MakeItem(targetItem.Name);
         item.transform.position = spawnPivot.position;
     }
 }

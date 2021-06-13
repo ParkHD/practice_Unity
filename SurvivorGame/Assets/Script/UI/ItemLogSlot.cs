@@ -29,7 +29,8 @@ public class ItemLogSlot : MonoBehaviour
     public void SetUp(Item item)
     {
         itemIcon.sprite = item.ItemImage;
-        itemName.text = item.Name.ToString();
+        itemName.text = item.Name;
+        Debug.Log(item.Name);
         itemCount.text = item.Count.ToString();
         ani.Play("ItemLog_Show");
 

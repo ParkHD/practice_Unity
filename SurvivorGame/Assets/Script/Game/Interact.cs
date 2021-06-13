@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface Iinteraction
 {
-    ITEM_TYPE GetName();
+    string GetName();
     void OnInteract();
 
 }

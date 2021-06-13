@@ -10,19 +10,23 @@ public enum ITEM_TYPE
     Ammo7_76mm,
 }
 [System.Serializable]
-public class Item
+public class Item : ScriptableObject
 {
-    [SerializeField] ITEM_TYPE name;
+    [SerializeField] string itemName;
     [SerializeField] Sprite image;
     [SerializeField] int count;
     [SerializeField] string info;
-    public ITEM_TYPE Name => name;
+
+    protected string itemType;
+    public string ItemType => itemType;
+
+    public string Name => itemName;
     public int Count => count;
     public Sprite ItemImage => image;
     public string Info => info;
     public Item(Item item)
     {
-        name = item.name;
+        itemName = item.itemName;
         count = item.count;
         image = item.image;
         info = item.info;
@@ -31,14 +35,18 @@ public class Item
 public class ItemObject : MonoBehaviour
 {
     [SerializeField] Item item;
+
     public void OnInteract()
     {
-        Debug.Log(item.Name.ToString() + "È¹µæ");
         PlayerState.Instance.GetItem(item);
         Destroy(gameObject);
     }
-    public ITEM_TYPE GetName()
+    public string GetName()
     {
         return item.Name;
+    }
+    public new string GetType()
+    {
+        return item.ItemType;
     }
 }
