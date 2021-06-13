@@ -7,6 +7,8 @@ public class Inventory
     Item[] itemArray;
 
     public event Action<Item[]> UpdateInven;
+    public event Action<Item> ShowItemLog;
+
     public Inventory()
     {
         itemArray = new Item[15];
@@ -24,6 +26,7 @@ public class Inventory
             {
                 itemArray[i] = item;
                 UpdateInven?.Invoke(itemArray);
+                ShowItemLog(item);
                 break;
             }
         }
@@ -36,6 +39,7 @@ public class Inventory
 
         UpdateInven(itemArray);
     }
+   
 }
 
 public class PlayerState : Singleton<PlayerState>
